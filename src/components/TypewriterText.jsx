@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 
 export default function TypewriterText({
@@ -11,41 +11,50 @@ export default function TypewriterText({
 }) {
   const [displayed, setDisplayed] = useState('');
   const [done, setDone] = useState(false);
+  const onCompleteRef = useRef(onComplete);
 
   const reducedMotion =
     typeof window !== 'undefined' &&
     window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   useEffect(() => {
+    onCompleteRef.current = onComplete;
+  }, [onComplete]);
+
+  useEffect(() => {
+    setDisplayed('');
+    setDone(false);
+
     if (reducedMotion) {
       setDisplayed(text);
       setDone(true);
-      onComplete?.();
+      onCompleteRef.current?.();
       return;
     }
 
     let i = 0;
-    let timeout;
+    let timeoutId;
+    let startedId;
 
-    const startTyping = () => {
-      timeout = setTimeout(function tick() {
-        i++;
-        setDisplayed(text.slice(0, i));
-        if (i < text.length) {
-          timeout = setTimeout(tick, speed);
-        } else {
-          setDone(true);
-          onComplete?.();
-        }
-      }, speed);
+    const tick = () => {
+      i += 1;
+      setDisplayed(text.slice(0, i));
+
+      if (i < text.length) {
+        timeoutId = setTimeout(tick, speed);
+      } else {
+        setDone(true);
+        onCompleteRef.current?.();
+      }
     };
 
-    const delayTimeout = setTimeout(startTyping, delay);
+    startedId = setTimeout(tick, delay + speed);
+
     return () => {
-      clearTimeout(delayTimeout);
-      clearTimeout(timeout);
+      clearTimeout(startedId);
+      clearTimeout(timeoutId);
     };
-  }, [text, speed, delay, onComplete, reducedMotion]);
+  }, [text, speed, delay, reducedMotion]);
 
   return (
     <span className={className}>
