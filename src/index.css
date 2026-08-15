@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+body {
+  font-family: 'Nunito', sans-serif;
+  background: #fff8f0;
+  overscroll-behavior: none;
+  touch-action: manipulation;
+}
+
+@layer utilities {
+  .text-shadow-soft {
+    text-shadow: 0 2px 8px rgba(212, 187, 255, 0.4);
+  }
+
+  .handwritten {
+    font-family: 'Caveat', cursive;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.scene-container {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  overflow: hidden;
+}
+
+.cute-button {
+  @apply px-8 py-4 rounded-full font-display font-semibold text-lg
+         bg-blush text-softpurple shadow-soft
+         border-2 border-petal/30
+         active:scale-95 transition-transform duration-200
+         min-h-[52px] min-w-[160px]
+         select-none cursor-pointer;
+}
+
+.cute-button:hover {
+  @apply shadow-glow;
+}
+
+.cute-button:disabled {
+  @apply opacity-50 cursor-not-allowed;
+}
+
+.modal-overlay {
+  @apply fixed inset-0 z-50 flex items-center justify-center p-4;
+  background: rgba(26, 16, 51, 0.4);
+  backdrop-filter: blur(4px);
+}
+
+.modal-card {
+  @apply bg-cream rounded-3xl p-6 max-w-sm w-full shadow-soft border-2 border-lavender/50;
+}
