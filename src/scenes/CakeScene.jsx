@@ -68,7 +68,7 @@ export default function CakeScene({ onNext }) {
             >
               <motion.h2
                 animate={{ scale: [1, 1.05, 1] }}
-                transition={{ duration: 1, repeat: Infinity }}
+                transition={{ duration: 1, repeat: 0 }}
                 className="font-handwritten text-2xl md:text-3xl text-petal text-center text-shadow-soft px-4"
               >
                 {cake.birthdayMessage}

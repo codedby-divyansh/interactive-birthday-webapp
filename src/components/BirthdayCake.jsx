@@ -37,7 +37,7 @@ export default function BirthdayCake({ candleCount = 5, onAllBlown, onCelebrate 
 
       <motion.div
         animate={allDone ? { y: [0, -6, 0, -4, 0] } : {}}
-        transition={{ duration: 0.6, repeat: allDone ? Infinity : 0, repeatDelay: 1 }}
+        transition={{ duration: 0.6, repeat: 0, repeatDelay: 1 }}
         className="relative"
       >
         <div className="flex justify-center gap-2 mb-1 relative z-10">
@@ -50,7 +50,7 @@ export default function BirthdayCake({ candleCount = 5, onAllBlown, onCelebrate 
                     animate={{ scale: 1, opacity: 1, y: [0, -2, 0] }}
                     exit={{ scale: 0, opacity: 0 }}
                     transition={{
-                      y: { duration: 0.5, repeat: Infinity },
+                      y: { duration: 0.5, repeat: 0 },
                       exit: { duration: 0.3 },
                     }}
                     onClick={() => handleCandleClick(i)}
@@ -65,7 +65,7 @@ export default function BirthdayCake({ candleCount = 5, onAllBlown, onCelebrate 
                         boxShadow: '0 0 12px rgba(255, 158, 181, 0.8)',
                       }}
                       animate={{ scale: [1, 1.1, 1], rotate: [-3, 3, -3] }}
-                      transition={{ duration: 0.4, repeat: Infinity }}
+                      transition={{ duration: 0.4, repeat: 0 }}
                     />
                   </motion.button>
                 )}

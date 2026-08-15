@@ -43,7 +43,7 @@ export default function GardenScene({ onNext }) {
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: [0.4, 0.8, 0.4] }}
-            transition={{ duration: 2, repeat: Infinity }}
+            transition={{ duration: 2, repeat: 0 }}
             className="text-center text-sm text-night/40 mt-6 font-body"
           >
             tap each flower to bloom 🌸

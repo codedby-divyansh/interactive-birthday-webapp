@@ -139,8 +139,8 @@ export default function HeartGame({ instruction, unlockedMessage, onComplete }) 
                     }}
                     exit={{ scale: 0, opacity: 0, rotate: 180 }}
                     transition={{
-                      scale: { duration: 1.5, repeat: Infinity },
-                      y: { duration: 2, repeat: Infinity, ease: 'easeInOut' },
+                      scale: { duration: 1.5, repeat: 0 },
+                      y: { duration: 2, repeat: 0, ease: 'easeInOut' },
                       exit: { duration: 0.4 },
                     }}
                     whileTap={{ scale: 1.5 }}

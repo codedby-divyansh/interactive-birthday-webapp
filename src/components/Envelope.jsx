@@ -43,7 +43,7 @@ export default function Envelope({ prompt, message, onOpen }) {
             }}
             transition={{
               duration: 2 + Math.random(),
-              repeat: Infinity,
+              repeat: 0,
               delay: i * 0.3,
             }}
           >
@@ -67,7 +67,7 @@ export default function Envelope({ prompt, message, onOpen }) {
               transition={
                 isOpen
                   ? { duration: 0.5 }
-                  : { duration: 3, repeat: Infinity, ease: 'easeInOut' }
+                  : { duration: 3, repeat: 0, ease: 'easeInOut' }
               }
             >
               {/* Back */}
@@ -95,7 +95,7 @@ export default function Envelope({ prompt, message, onOpen }) {
               <motion.div
                 className="absolute top-[38%] left-1/2 -translate-x-1/2 text-2xl z-10"
                 animate={isOpen ? { scale: 0, opacity: 0 } : { scale: [1, 1.1, 1] }}
-                transition={{ duration: 1.5, repeat: Infinity }}
+                transition={{ duration: 1.5, repeat: 0 }}
               >
                 💌
               </motion.div>
@@ -104,7 +104,7 @@ export default function Envelope({ prompt, message, onOpen }) {
                 <motion.p
                   className="absolute -bottom-8 left-1/2 -translate-x-1/2 text-sm text-softpurple/70 whitespace-nowrap font-body"
                   animate={{ opacity: [0.5, 1, 0.5] }}
-                  transition={{ duration: 2, repeat: Infinity }}
+                  transition={{ duration: 2, repeat: 0 }}
                 >
                   tap to open
                 </motion.p>

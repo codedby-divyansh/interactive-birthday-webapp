@@ -79,7 +79,7 @@ export default function FinalScene({ onRestart }) {
         <motion.div
           className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-moonlight shadow-glow relative"
           animate={{ boxShadow: ['0 0 20px rgba(245,230,255,0.3)', '0 0 40px rgba(245,230,255,0.5)', '0 0 20px rgba(245,230,255,0.3)'] }}
-          transition={{ duration: 3, repeat: Infinity }}
+            transition={{ duration: 3, repeat: 0 }}
         >
           <div className="absolute top-2 left-3 w-3 h-3 rounded-full bg-lavender/20" />
           <div className="absolute bottom-3 right-4 w-2 h-2 rounded-full bg-lavender/15" />
@@ -122,7 +122,7 @@ export default function FinalScene({ onRestart }) {
             >
               <motion.h1
                 animate={{ scale: [1, 1.03, 1] }}
-                transition={{ duration: 2, repeat: Infinity }}
+                transition={{ duration: 2, repeat: 0 }}
                 className="font-handwritten text-2xl md:text-4xl text-petal text-shadow-soft"
               >
                 {finale.birthday}
@@ -178,7 +178,7 @@ export default function FinalScene({ onRestart }) {
               animate={{ opacity: [0, 0.8, 0], y: [0, -20, 0] }}
               transition={{
                 duration: 3,
-                repeat: Infinity,
+                repeat: 0,
                 delay: i * 0.3,
               }}
             />

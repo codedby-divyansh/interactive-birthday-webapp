@@ -38,7 +38,7 @@ export default function CuteBunny({
       transition={
         reaction === 'happy'
           ? { duration: 0.5 }
-          : { duration: sitting ? 3 : 2, repeat: Infinity, ease: 'easeInOut' }
+          : { duration: sitting ? 3 : 2, repeat: 0, ease: 'easeInOut' }
       }
     >
       {/* Ears */}
@@ -46,7 +46,7 @@ export default function CuteBunny({
         className="absolute left-[18%] top-0 w-[22%] h-[40%] bg-white rounded-[50%] border-2 border-petal/20 shadow-soft"
         style={{ transformOrigin: 'bottom center' }}
         animate={{ rotate: reaction === 'happy' ? [-8, 8, -8] : [-3, 3, -3] }}
-        transition={{ duration: 2, repeat: Infinity }}
+        transition={{ duration: 2, repeat: 0 }}
       >
         <div className="absolute inset-[20%] bg-blush rounded-full opacity-60" />
       </motion.div>
@@ -54,7 +54,7 @@ export default function CuteBunny({
         className="absolute right-[18%] top-0 w-[22%] h-[40%] bg-white rounded-[50%] border-2 border-petal/20 shadow-soft"
         style={{ transformOrigin: 'bottom center' }}
         animate={{ rotate: reaction === 'happy' ? [8, -8, 8] : [3, -3, 3] }}
-        transition={{ duration: 2, repeat: Infinity, delay: 0.3 }}
+        transition={{ duration: 2, repeat: 0, delay: 0.3 }}
       >
         <div className="absolute inset-[20%] bg-blush rounded-full opacity-60" />
       </motion.div>
@@ -111,7 +111,7 @@ export default function CuteBunny({
           className="absolute bottom-[15%] right-[5%] w-[18%] h-[22%] bg-white rounded-[50%] border-2 border-petal/20 shadow-soft z-20"
           style={{ transformOrigin: 'bottom left' }}
           animate={{ rotate: [0, -20, 0, -15, 0] }}
-          transition={{ duration: 1.5, repeat: Infinity, repeatDelay: 2 }}
+          transition={{ duration: 1.5, repeat: 0, repeatDelay: 2 }}
         />
       )}
 

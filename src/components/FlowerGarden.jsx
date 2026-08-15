@@ -49,7 +49,7 @@ export default function FlowerGarden({ flowers, title, onAllVisited }) {
                   rotate: visited.has(flower.id) ? [0, -10, 10, 0] : [0, -5, 5, 0],
                   scale: visited.has(flower.id) ? 1.15 : 1,
                 }}
-                transition={{ duration: 2, repeat: Infinity, repeatDelay: 1 }}
+                transition={{ duration: 2, repeat: 0, repeatDelay: 1 }}
               >
                 {flower.emoji}
               </motion.span>
