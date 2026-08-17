@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import ReactPlayer from 'react-player/youtube'; // 1. Imported the player
+import ReactPlayer from 'react-player'; // 1. Imported the player
 import SceneTransition from '../components/SceneTransition';
 import BirthdayCake from '../components/BirthdayCake';
 import TypewriterText from '../components/TypewriterText';
