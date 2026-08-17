@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import ReactPlayer from 'react-player/youtube'; // 1. Imported the player
 import SceneTransition from '../components/SceneTransition';
 import BirthdayCake from '../components/BirthdayCake';
 import TypewriterText from '../components/TypewriterText';
@@ -9,11 +10,23 @@ import { birthdayData } from '../data/birthdayData';
 export default function CakeScene({ onNext }) {
   const [phase, setPhase] = useState(0);
   const [wishMade, setWishMade] = useState(false);
+  const [isMusicPlaying, setIsMusicPlaying] = useState(false); // 2. Added state for music
   const { cake } = birthdayData;
 
   return (
     <SceneTransition className="bg-gradient-to-b from-cream via-blush/20 to-lavender/30">
       <ParticleBackground variant="day" density={20} />
+
+      {/* 3. Added the hidden YouTube player */}
+      <div style={{ display: 'none' }}>
+        <ReactPlayer
+          url="https://youtu.be/5u4xTa3LR2U"
+          playing={isMusicPlaying}
+          volume={1.0}
+          width="0px"
+          height="0px"
+        />
+      </div>
 
       <div className="relative z-10 flex flex-col items-center gap-6 w-full max-w-md">
         {phase >= 0 && !wishMade && (
@@ -44,7 +57,10 @@ export default function CakeScene({ onNext }) {
 
         <BirthdayCake
           candleCount={cake.candleCount}
-          onAllBlown={() => setWishMade(true)}
+          onAllBlown={() => {
+            setWishMade(true);
+            setIsMusicPlaying(true); // 4. Triggers the music when candles are blown
+          }}
         />
 
         {!wishMade && phase >= 1 && (
